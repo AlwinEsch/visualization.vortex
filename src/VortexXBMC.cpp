@@ -28,24 +28,25 @@ class CVisualizationVortex
   , public kodi::addon::CInstanceVisualization
 {
 public:
-  virtual ~CVisualizationVortex();
+  ~CVisualizationVortex() override;
 
-  virtual ADDON_STATUS Create() override;
-  virtual bool Start(int channels, int samplesPerSec, int bitsPerSample, std::string songName) override;
-  virtual void Stop() override;
-  virtual void Render() override;
-  virtual bool GetPresets(std::vector<std::string>& presets) override;
-  virtual int GetActivePreset() override;
-  virtual bool IsLocked() override;
-  virtual bool PrevPreset() override;
-  virtual bool NextPreset() override;
-  virtual bool LoadPreset(int select) override;
-  virtual bool RandomPreset() override;
-  virtual bool LockPreset(bool lockUnlock) override;
-  virtual void AudioData(const float* audioData, int audioDataLength, float *freqData, int freqDataLength) override;
-  virtual ADDON_STATUS SetSetting(const std::string& settingName, const kodi::CSettingValue& settingValue) override;
-  virtual bool UpdateTrack(const VisTrack &track) override;
-  virtual bool UpdateAlbumart(std::string albumart) override;
+  ADDON_STATUS Create() override;
+  bool Start(int channels, int samplesPerSec, int bitsPerSample, std::string songName) override;
+  void Stop() override;
+  void Render() override;
+  bool GetPresets(std::vector<std::string>& presets) override;
+  int GetActivePreset() override;
+  bool IsLocked() override;
+  bool PrevPreset() override;
+  bool NextPreset() override;
+  bool LoadPreset(int select) override;
+  bool RandomPreset() override;
+  bool LockPreset(bool lockUnlock) override;
+  void AudioData(const float* audioData, int audioDataLength, float *freqData, int freqDataLength) override;
+  ADDON_STATUS SetSetting(const std::string& settingName, const kodi::CSettingValue& settingValue) override;
+  bool UpdateTrack(const VisTrack &track) override;
+  bool UpdateAlbumart(std::string albumart) override;
+
 private:
   Vortex* m_Vortex{ nullptr };
   std::string g_pluginPath;
